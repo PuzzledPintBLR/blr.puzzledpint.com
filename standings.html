@@ -34,7 +34,6 @@
     <link rel="icon" type="image/png" href="images/favicon.png" />
 
     <style>
-
       /* design based on this codepen - https://codepen.io/borntofrappe/pen/ZZaaOe */
       table {
         /* position relative to include a band on the left of the container */
@@ -46,22 +45,41 @@
         border-spacing: 0 1rem;
       }
       /* with a pseudo element add a band with a repeating linear gradient */
-      table:before {
-        position: absolute;
-        content: "";
-        right: calc(100% + 1rem);
-        top: 0;
-        height: 100%;
-        width: 1.5rem;
-        border-radius: 5px;
-        border: 1px solid #38383f;
-        background: repeating-linear-gradient(
-          -45deg,
-          #15151e 0px,
-          #15151e 4px,
-          #38383f 4px,
-          #38383f 8px
-        );
+      @media (prefers-color-scheme: dark) {
+        table:before {
+          position: absolute;
+          content: "";
+          right: calc(100% + 1rem);
+          top: 0;
+          height: 100%;
+          width: 1.5rem;
+          border-radius: 5px;
+          border: 1px solid #38383f;
+          background: repeating-linear-gradient(
+            -45deg,
+            #15151e 0px,
+            #15151e 4px,
+            #38383f 4px,
+            #38383f 8px
+          );
+        }
+      }
+      @media (prefers-color-scheme: light) {
+        table:before {
+          position: absolute;
+          content: "";
+          right: calc(100% + 1rem);
+          top: 0;
+          height: 100%;
+          width: 1.5rem;
+          border-radius: 5px;
+          border: 1px solid #76316e;
+          background: repeating-linear-gradient(
+            -45deg,
+            #76316e 4px,
+            #ffffff 8px
+          );
+        }
       }
       /* center every element nested in a table row */
       table tr > * {
@@ -107,8 +125,9 @@
 
       /* style the span nested in the last cell to have the gap in a rounded rectangle */
       table td.time span {
-        background: #38383f;
+        background: #76316e;
         border-radius: 30px;
+        color: white;
         padding: 0.5rem 0.75rem;
         font-size: 0.8rem;
       }
