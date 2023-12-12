@@ -171,6 +171,7 @@
             <th>#</th>
             <th>Team</th>
             <th>Start Time</th>
+            <th>End Time</th>
           </tr>
         </table>
       </div>
@@ -203,17 +204,19 @@
       complete: function (results, file) {
         // console.log("Parsing complete:", results, file);
         // results.data.
-        const leaderboard = results.data.filter(function (row){
+        const leaderboard = results.data.filter(function (row) {
           if (row["Team Name"] == "")
             return false;
           else
             return true
-        }).map(function(row) {
-          
+        }).map(function (row) {
+
           return {
             name: row["Team Name"],
             size: row["Team Size"],
-            time: row["Start Time"]
+            time: row["Start Time"],
+            end: row["End Time"],
+            duration: row["Time"]
           }
         })
         const leaderboard1 = [
@@ -388,6 +391,22 @@
               return time;
             }
             return `${time}pm`;
+          });
+        // end
+        teams
+          .append("td")
+          .attr("class", ({ duration }) => {
+            if (duration.toLowerCase() == "dnf") {
+              return "";
+            }
+            return `time`;
+          })
+          .append("span")
+          .text(({ duration }) => {
+            if (duration.toLowerCase() == "dnf") {
+              return "-";
+            }
+            return `${duration.replace(":","h")}m`;
           });
       }
     })
