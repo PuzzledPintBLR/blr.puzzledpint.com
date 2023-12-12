@@ -201,7 +201,7 @@
       download: true,
       header: true,
       complete: function (results, file) {
-        console.log("Parsing complete:", results, file);
+        // console.log("Parsing complete:", results, file);
         // results.data.
         const leaderboard = results.data.filter(function (row){
           if (row["Team Name"] == "")
