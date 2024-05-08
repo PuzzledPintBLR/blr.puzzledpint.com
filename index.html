@@ -6,27 +6,25 @@ title: Puzzled Pint Bangalore
     <div class="row">
       <div class="column" style="margin-top: 10%">
 
-        <!-- Your Image Here -->
+        <!-- 1Your Image Here -->
         <img src="images/favicon.png" class="avatar" alt="">
 
         <!-- Title -->
-        <h1 role="heading">Puzzled Pint Bangalore</h1>
+        <h1 role="heading">{{site.title}}</h1>
 
         <!-- Short Bio -->
         <p>A casual event for puzzle lovers on the second Tuesday of every month. Bangalore Chapter of <a href="http://puzzledpint.com/">Puzzled Pint</a></p>
-        <a class="button button-default" href="/standings" target="_blank" rel="noopener" role="button">🏆 Leaderboard April 2024</a><br>
-        <a class="button button-default" href="https://insider.in/puzzled-pint-bangalore-april-2024/event" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/generic-calendar.svg" alt="">Register for April 9th, 2024</a><br>
-        <a class="button button-whatsapp" href="https://chat.whatsapp.com/GcrT3z5uOYY57AJxolMj7I" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/whatsapp.svg" alt="">Join WhatsApp Group (Updates)</a><br>
-        <a class="button button-default" href="http://puzzledpint.com/puzzles/" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/generic-website.svg" alt="">Puzzle Archives</a><br>
-        <a class="button button-amazon" href="http://puzzledpint.com/resources/" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/read-cv.svg" alt="">Puzzle Solving Resources</a><br>
 
-        <a class="button button-instagram" href="https://www.instagram.com/puzzledpintblr/" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/instagram.svg" alt="">@puzzledpintblr</a><br>
-        <a class="button button-telegram" href="https://t.me/+aSLCl4cpCUs0OWVk" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/telegram.svg" alt="">Telegram Updates</a><br>
-        <a class="button button-twit" href="https://twitter.com/PuzzledPintBLR/" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/twitter.svg" alt="">@puzzledpintblr</a><br>
-        <a class="button button-mailchimp" href="https://eepurl.com/dmqMbT" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/email.svg" alt="">Monthly Newsletter</a><br>
+        <a class="button button-default" href="/standings/{{ "today" | date: "%Y-%m" }}/" target="_blank" rel="noopener" role="button">🏆 Leaderboard {{"now" | date:"%B %Y"}}</a><br>
 
-        <a class="button button-github" href="https://github.com/PuzzledPintBLR" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/github.svg" alt="">GitHub</a><br>
+        <a class="button button-default" href="https://insider.in/puzzled-pint-bangalore-{{"now"|date:"%B-%Y" | downcase }}/event" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/generic-calendar.svg" alt="">Register for {{"now" | date:"%B %Y"}}</a><br>
 
+        {% for link in site.links %}
+        <a class="button button-{{link.button}}" href="{{link.url}}" target=_blank rel=noopener role=button>
+            <img class=icon src=/images/icons/{{link.icon}}.svg alt="icon for {{link.icon}}">
+            {{link.text}}
+        </a><br>
+        {% endfor %}
 
       </div>
     </div>
