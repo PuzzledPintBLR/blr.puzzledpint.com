@@ -4,7 +4,7 @@ title: Puzzled Pint BLR
 author: Puzzled Pint Bangalore GC
 description: >- # this means to ignore newlines until "baseurl:"
   A casual event for puzzle lovers on the second Tuesday of every month. Bangalore Chapter of
-  <a href="https://puzzledpint.com/">Puzzled Pint</a>.
+  Puzzled Pint.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://blr.puzzzledpint.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  PuzzledPintBLR

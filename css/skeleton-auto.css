@@ -287,7 +287,7 @@ table th {
   font-weight: 300;
   letter-spacing: 0.04rem;
   font-size: 0.9rem;
-  color: #eee;
+  /* color: #eee; */
   text-transform: uppercase;
 }
 
