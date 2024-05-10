@@ -3,7 +3,7 @@
 <script>
 // Only run this on current month
 var colors =  {{site.data.colors | jsonify}}
-Papa.parse("{{page.sheetURL}}", {
+Papa.parse("@KARTHIK; change this to a live sheet URL", {
     download: true,
     header: true,
     complete: function (results, file) {

@@ -13,7 +13,7 @@ layout: default
         <img src="/images/favicon.png" class="avatar" alt="" />
 
         <h2 role="heading">{{page.month | date:"%B %Y"}} Teams</h2>
-        <h4>{{page.theme}}</h4>
+        <h4>{{page.event.theme}}</h4>
         <table>
           <!-- <thead> -->
           <tr>
@@ -25,7 +25,8 @@ layout: default
           <!-- </thead> -->
           <!-- <tbody> -->
             {% assign idx=1 %}
-            {% assign rows = site.data.results | where: "Date", "2024-03-12" %}
+            {% assign rows = site.data.results | where: "Date", page.event.date %}
+            {% if rows.size > 0 %}
             {% for row in rows %}
             <tr>
                 <td>{{idx}}</td>
@@ -45,6 +46,10 @@ layout: default
             </tr>
             {% assign idx=idx|plus:1 %}
             {% endfor %}
+            {% else %}
+            {% include live-standings.html %}
+            {% endif %}
+
           <!-- </tbody> -->
         </table>
       </div>
