@@ -8,6 +8,8 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://blr.puzzzledpint.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  PuzzledPintBLR
+plugins:
+  - jekyll-datapage-generator
 links:
 - url: https://chat.whatsapp.com/GcrT3z5uOYY57AJxolMj7I
   icon: whatsapp
@@ -41,3 +43,13 @@ links:
   text: GitHub
   button: github
   icon: github
+
+page_gen-dirs: true
+page_gen:
+- data: events
+  template: standings
+  dir: standings
+  name_expr: record['date'].strftime('%Y-%m')
+  title_expr: record['date'].strftime("%B %Y") 
+  page_data_prefix: event
+  # debug: true
