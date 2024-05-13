@@ -25,7 +25,9 @@ permalink: /teams/
             {% for row in site.data.teams %}
             {% if row.results.size >= 2 %}
             <tr>
-                <!-- <td>{{idx}}</td> -->
+            {%else %}
+            <tr style="display:none">
+            {%endif%}
                 
                 <td class="team color-{{row.color_index}}" data-slug="{{row.slug}}">
                     <a href="/teams/{{row.slug}}/">{{row.name}}</a>
@@ -40,14 +42,22 @@ permalink: /teams/
                 <td>{{row.results.size}}</td>
                 
             </tr>
-            {% endif %}
+            
             
             {% endfor %}
 
-          <!-- </tbody> -->
         </table>
       </div>
     </div>
+    <script>
+      function showAll(){
+        var x = document.querySelectorAll("tr[style='display:none']");
+        for (var i = 0; i < x.length; i++) {
+          x[i].style.display = "table-row";
+        }
+      }
+    </script>
+    <a class="button button-default" href='#' role="button" onclick="showAll()">Show All Teams</a><br>
 </div>
 
 <small>All teams with 2 or more appearances are shown</small>
