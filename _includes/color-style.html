@@ -1,0 +1,5 @@
+<style>
+    {% for C in site.data.colors %}
+    .color-{{forloop.index0}} {border-left: 4px solid {{C}};}
+    {% endfor %}
+</style>

@@ -10,8 +10,9 @@
 - date: 2023-04-11
   theme: "Codes"
 
-- date: 2023-05-09
-  theme: "Taco Tuesday"
+# No results for some reason
+# - date: 2023-05-09
+#   theme: "Taco Tuesday"
 
 - date: 2023-06-13
   theme: "Liquid Measures"
@@ -48,3 +49,4 @@
 
 - date: 2024-05-14
   theme: "Bart Simpson"
+  future: true

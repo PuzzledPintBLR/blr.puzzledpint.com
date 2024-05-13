@@ -1,11 +1,7 @@
 ---
 layout: default
 ---
-<style>
-    {% for C in site.data.colors %}
-    .color-{{forloop.index0}} {border-left: 4px solid {{C}};}
-    {% endfor %}
-</style>
+{% include color-style.html %}
 <div class="container">
     <div class="row">
       <div class="column" style="margin-top: 10%; margin-bottom: 10%">
@@ -32,16 +28,20 @@ layout: default
                 <td>{{idx}}</td>
                 
                 <td class="team color-{{row.color_index}}" data-slug="{{row.slug}}">
-                    {{row['Team Name']}}
+                    <a href="/teams/{{row.slug}}/">
+                        {{row['Team Name']}}
+                    </a>
                     <span>{{row['Team Size']}} Players</span>
                 </td>
                 <td class="time">
                     <span>{{row['Start Time']}}</span>
                 </td>
                 <td class="time">
+                    {% if row['d'] %}
                     <span>
                     {{row['duration']}}
                     </span>
+                    {% endif %}
                 </td>
             </tr>
             {% assign idx=idx|plus:1 %}

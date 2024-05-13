@@ -1,0 +1,60 @@
+---
+permalink: /standings/
+title: Standings
+layout: default
+---
+{% include color-style.html %}
+
+<div class="container">
+    <div class="row">
+      <div class="column" style="margin-top: 10%; margin-bottom: 10%">
+
+        <a href="/"><img src="/images/favicon.png" class="avatar" alt="Puzzled Pint Bangalore Logo" /></a>
+
+        <h2 role="heading">Events</h2>
+        <table>
+        	<tr>
+        		<th>Event</th>
+        		<th>Theme</th>
+        		<th>Attendees</th>
+        		<th>Fastest Team</th>
+        		<th>Time</th>
+        	</tr>
+			
+			{% assign events =  site.data.events |where: "future", nil | reverse %}
+			{% for row in events %}
+			<tr>
+				<td>
+					<a href='/standings/{{row.date|date:"%Y-%m"}}/' title='Standings for {{row.date|date:"%B %Y"}}'>
+						{{row.date|date:"%B %Y"}}
+					</a>
+				</td>
+				<td>{{row.theme}}</td>
+				{% assign month_results = site.data.results | where: "Date", row.date %}
+
+				{% assign attendees = 0 %}
+
+				
+				{% for r in month_results %}
+					{% assign attendees = attendees | plus: r['Team Size'] %}
+					
+				{% endfor %}
+
+				<td><span>{{attendees}}</span></td>
+				{% assign top_team = month_results.first %}
+				<td class="team color-{{month_results.first.color_index}}">
+					<a href="/teams/{{top_team.slug}}/" title="Team Page for {{top_team['Team Name']}}">
+						{{top_team['Team Name']}}
+					</a>
+				</td>
+				<td class=time>
+					{% if top_team.duration %}
+					<span>{{top_team.duration}}</span>
+					{% endif %}
+				</td>
+			</tr>
+			{% endfor %}
+
+      </div>
+    </div>
+</div>

@@ -11,13 +11,15 @@ permalink: /teams/
     <div class="row">
       <div class="column" style="margin-top: 10%; margin-bottom: 10%">
 
-        <img src="/images/favicon.png" class="avatar" alt="" />
+        <a href="/"><img src="/images/favicon.png" class="avatar" alt="Puzzled Pint Bangalore Logo" /></a>
 
         <h2 role="heading">Teams</h2>
         <table>
           <tr>
             <th>Team</th>
             <th>Last Appearance</th>
+            <th>Event</th>
+            <th>Appearances</th>
           </tr>
             {% assign idx=1 %}
             {% for row in site.data.teams %}
@@ -26,14 +28,16 @@ permalink: /teams/
                 <!-- <td>{{idx}}</td> -->
                 
                 <td class="team color-{{row.color_index}}" data-slug="{{row.slug}}">
-                    {{row.name}}
+                    <a href="/teams/{{row.slug}}/">{{row.name}}</a>
                 </td>
                   
                 <td class="time">
-                  {% if row.results.last.duration != "" %}
+                  {% unless row.results.last.duration == "" %}
                   <span>{{row.results.last.duration}}</span>
-                  {% endif %}
+                  {% endunless %}
                 </td>
+                <td>{{row.results.last.event | date:"%B %Y"}}</td>
+                <td>{{row.results.size}}</td>
                 
             </tr>
             {% endif %}
