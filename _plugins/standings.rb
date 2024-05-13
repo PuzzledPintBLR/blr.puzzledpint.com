@@ -29,6 +29,12 @@ Jekyll::Hooks.register :site, :post_read do |site|
             'name' => row['Team Name']
         }
 
+        # if the slug matches the generated one, then update team name
+        # since the above only sets it based on the ordering of results
+        if row['slug'] == Jekyll::Utils.slugify(row['Team Name'])
+            site.data['teams'][row['slug']]['name'] = row['Team Name']
+        end
+
         if row['End Time']
             row['d'] = d = (Time.parse(row['End Time']).to_i - Time.parse(row['Start Time']).to_i)
             if d>=3600

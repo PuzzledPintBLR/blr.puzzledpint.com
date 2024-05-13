@@ -23,6 +23,14 @@ layout: default
 			
 			{% assign events =  site.data.events |where: "future", nil | reverse %}
 			{% for row in events %}
+			{% assign attendees = 0 %}
+
+			{% assign month_results = site.data.results | where: "Date", row.date %}
+			{% for r in month_results %}
+				{% assign attendees = attendees | plus: r['Team Size'] %}
+				
+			{% endfor %}
+			{% if attendees > 0 %}
 			<tr>
 				<td>
 					<a href='/standings/{{row.date|date:"%Y-%m"}}/' title='Standings for {{row.date|date:"%B %Y"}}'>
@@ -30,15 +38,9 @@ layout: default
 					</a>
 				</td>
 				<td>{{row.theme}}</td>
-				{% assign month_results = site.data.results | where: "Date", row.date %}
-
-				{% assign attendees = 0 %}
+				
 
 				
-				{% for r in month_results %}
-					{% assign attendees = attendees | plus: r['Team Size'] %}
-					
-				{% endfor %}
 
 				<td><span>{{attendees}}</span></td>
 				{% assign top_team = month_results.first %}
@@ -53,6 +55,7 @@ layout: default
 					{% endif %}
 				</td>
 			</tr>
+			{% endif %}
 			{% endfor %}
 
       </div>
