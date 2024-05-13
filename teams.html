@@ -1,0 +1,47 @@
+---
+layout: default
+permalink: /teams/
+---
+<style>
+    {% for C in site.data.colors %}
+    .color-{{forloop.index0}} {border-left: 4px solid {{C}};}
+    {% endfor %}
+</style>
+<div class="container">
+    <div class="row">
+      <div class="column" style="margin-top: 10%; margin-bottom: 10%">
+
+        <img src="/images/favicon.png" class="avatar" alt="" />
+
+        <h2 role="heading">Teams</h2>
+        <table>
+          <tr>
+            <th>Team</th>
+            <th>Last Appearance</th>
+          </tr>
+            {% assign idx=1 %}
+            {% for row in site.data.teams %}
+            {% if row.results.size > 2 %}
+            <tr>
+                <!-- <td>{{idx}}</td> -->
+                
+                <td class="team color-{{row.color_index}}" data-slug="{{row.slug}}">
+                    {{row.name}}
+                </td>
+                  
+                <td class="time">
+                  {% if row.results.last.duration != "" %}
+                  <span>{{row.results.last.duration}}</span>
+                  {% endif %}
+                </td>
+                
+            </tr>
+            {% endif %}
+            
+            {% endfor %}
+
+          <!-- </tbody> -->
+        </table>
+      </div>
+    </div>
+</div>
