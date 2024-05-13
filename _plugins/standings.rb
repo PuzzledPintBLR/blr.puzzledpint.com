@@ -20,7 +20,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     site.data['results'].each do |row|
         row['duration'] = ""
         row['slug'] = find_alias_or_slug(site, row['Team Name'])
-        row['color_index'] = Digest::SHA1.hexdigest(row['slug']).to_i % site.data['colors'].size
+        row['color_index'] = Digest::SHA1.hexdigest(row['slug']).to_i(16) % site.data['colors'].size
 
         site.data['teams'][row['slug']] ||= {
             'results' => [],
