@@ -308,7 +308,7 @@ table td.team strong {
   font-weight: 500;
 }
 
-table td.team span {
+table td.team span, td.subtle {
   text-transform: capitalize;
   margin-left: 0.75rem;
   font-size: 0.8rem;
