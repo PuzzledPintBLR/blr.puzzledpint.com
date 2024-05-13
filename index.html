@@ -15,9 +15,20 @@ title: Puzzled Pint Bangalore
         <!-- Short Bio -->
         <p>{{site.description}}</p>
 
-        <a class="button button-default" href="/standings/{{ "today" | date: "%Y-%m" }}/" target="_blank" rel="noopener" role="button">🏆 Leaderboard {{"now" | date:"%B %Y"}}</a><br>
+        <a class="button button-default" href='https://insider.in/puzzled-pint-bangalore-{{"now"|date:"%B-%Y" | downcase }}/event' target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/generic-calendar.svg" alt="">Register for {{"now" | date:"%B %Y"}}</a><br>
 
-        <a class="button button-default" href="https://insider.in/puzzled-pint-bangalore-{{"now"|date:"%B-%Y" | downcase }}/event" target="_blank" rel="noopener" role="button"><img class="icon" src="images/icons/generic-calendar.svg" alt="">Register for {{"now" | date:"%B %Y"}}</a><br>
+        <!-- TODO: Need better label -->
+        <a class="button button-default" href="/standings/" role=button>
+          🏆 All Months Leaderboard
+        </a>
+
+        <!-- TODO: Add Date for this month -->
+
+        <a class="button button-default" href='/standings/{{ "today" | date: "%Y-%m" }}/' role="button">🏅 Leaderboard {{"now" | date:"%B %Y"}}</a><br>
+
+        <a class="button button-default" href='/teams/' role="button">🆚 Teams</a><br>
+
+        
 
         {% for link in site.links %}
         <a class="button button-{{link.button}}" href="{{link.url}}" target=_blank rel=noopener role=button>

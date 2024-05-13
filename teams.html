@@ -23,7 +23,7 @@ permalink: /teams/
           </tr>
             {% assign idx=1 %}
             {% for row in site.data.teams %}
-            {% if row.results.size > 2 %}
+            {% if row.results.size >= 2 %}
             <tr>
                 <!-- <td>{{idx}}</td> -->
                 
@@ -49,3 +49,5 @@ permalink: /teams/
       </div>
     </div>
 </div>
+
+<small>All teams with 2 or more appearances are shown</small>
