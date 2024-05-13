@@ -1,0 +1,51 @@
+---
+layout: default
+---
+{% include color-style.html %}
+<div class="container">
+    <div class="row">
+      <div class="column" style="margin-top: 10%; margin-bottom: 10%">
+
+        <a href="/"><img src="/images/favicon.png" class="avatar" alt="Puzzled Pint Bangalore Logo" /></a>
+
+        <h2 role="heading" class="color-{{page.team.color_index}}-wide">{{page.team.name}}</h2>
+        <table>
+          <tr>
+            <th>Event</th>
+            <th>Players</th>
+            <th>Solve Time</th>
+          </tr>
+            {% assign rows = page.team.results |reverse%}
+            {% for row in rows %}
+            <tr>
+                <td class=team style="text-align: left;">
+                    <a href='/standings/{{row.event|date:"%Y-%m"}}/'>{{row.event | date:"%B %Y"}}</a>
+                    <span>{{site.data.event_theme_mapping[row.event]}}</span>
+                </td>
+                <td class=time>
+                    <span>{{row.players}}</span>
+                </td>
+                <td class="time">
+                    {% if row.duration != '' %}
+                    <span>{{row.duration}}</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+      </div>
+    </div>
+    <small>Team Slug: {{page.team.slug}}</small>
+    <br>
+    <small>
+    {% assign aliases = site.data.aliases | where: "slug",page.team.slug %}
+    {% if aliases.size > 0 %}
+    The team is known by the following aliases: 
+    {% for i in aliases %}
+    {{i.name}}
+    {% endfor %}
+    {% endif %}
+    </small>
+</div>
+

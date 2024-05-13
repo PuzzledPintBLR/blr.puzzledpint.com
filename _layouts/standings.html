@@ -6,20 +6,17 @@ layout: default
     <div class="row">
       <div class="column" style="margin-top: 10%; margin-bottom: 10%">
 
-        <img src="/images/favicon.png" class="avatar" alt="" />
+        <a href="/"><img src="/images/favicon.png" class="avatar" alt="Puzzled Pint Bangalore Logo" /></a>
 
-        <h2 role="heading">{{page.month | date:"%B %Y"}} Teams</h2>
-        <h4>{{page.event.theme}}</h4>
+        <h2 role="heading">{{page.event.date | date:"%B %Y"}} Teams</h2>
+        <h4><a style="color: #76316e" href='https://puzzledpint.com/events/{{page.event.date|date:"%B-%Y" | downcase}}/'>{{page.event.theme}}</a></h4>
         <table>
-          <!-- <thead> -->
           <tr>
             <th>#</th>
             <th>Team</th>
             <th>Start Time</th>
             <th>Solve Time</th>
           </tr>
-          <!-- </thead> -->
-          <!-- <tbody> -->
             {% assign idx=1 %}
             {% assign rows = site.data.results | where: "Date", page.event.date %}
             {% if rows.size > 0 %}
@@ -28,9 +25,7 @@ layout: default
                 <td>{{idx}}</td>
                 
                 <td class="team color-{{row.color_index}}" data-slug="{{row.slug}}">
-                    <a href="/teams/{{row.slug}}/">
-                        {{row['Team Name']}}
-                    </a>
+                    <a href="/teams/{{row.slug}}/">{{row['Team Name']}}</a>
                     <span>{{row['Team Size']}} Players</span>
                 </td>
                 <td class="time">
@@ -50,7 +45,6 @@ layout: default
             {% include live-standings.html %}
             {% endif %}
 
-          <!-- </tbody> -->
         </table>
       </div>
     </div>

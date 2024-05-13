@@ -5,7 +5,8 @@ require 'digest/sha1'
 Jekyll::Hooks.register :site, :post_read do |site|
 
     def find_alias_or_slug(site, team_name)
-        slug = Jekyll::Utils.slugify team_name
+        tn = team_name.sub('β', 'beta')
+        slug = Jekyll::Utils.slugify tn
         aliased = site.data['aliases'].find { |row| row['name'] == slug }
         if aliased
             return aliased['slug']
@@ -41,6 +42,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
                 'd' => d/60,
                 'duration' => row['duration'],
                 'event' => row['Date'],
+                'players' => row['Team Size'],
             }
         else
             site.data['teams'][row['slug']]['results'] << {
@@ -56,4 +58,9 @@ Jekyll::Hooks.register :site, :post_read do |site|
     end
     site.data['teams'] = site.data['teams'].values
     site.data['teams'].sort_by! {|r| -r['results'].size }
+
+    site.data['event_theme_mapping'] = {}
+    site.data['events'].each do |event|
+        site.data['event_theme_mapping'][event['date'].to_s] = event['theme']
+    end
 end
