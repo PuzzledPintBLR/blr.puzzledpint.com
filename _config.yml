@@ -50,8 +50,9 @@ page_gen:
   template: standings
   dir: standings
   name_expr: record['date'].strftime('%Y-%m')
-  title_expr: record['date'].strftime("%B %Y") 
+  title_expr: record['date'].strftime("%B %Y")  + " | Puzzled Pint BLR"
   page_data_prefix: event
+
 - data: teams
   template: team
   dir: teams

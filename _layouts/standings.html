@@ -42,7 +42,7 @@ layout: default
             {% assign idx=idx|plus:1 %}
             {% endfor %}
             {% else %}
-            {% include live-standings.html %}
+            {% include live-standings.html sheetURL=page.event.sheetURL%}
             {% endif %}
 
         </table>

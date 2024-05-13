@@ -138,7 +138,7 @@ a:focus {
 /* Link Color Dark Theme */
 @media (prefers-color-scheme: dark) {
   a {
-    color: #4899F7;
+    color: #eee;
 }
 a:hover {
   color: #7AB8FF;
