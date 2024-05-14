@@ -6,7 +6,7 @@
 // Only run this on current month
 var colors =  {{site.data.colors | jsonify}}
 function slug(text) {
-    return text.replaceAll(/[^a-zA-Z]+/g, '-').toLowerCase();
+    return text.replaceAll(/[^0-9a-zA-Z]+/g, '-').toLowerCase();
 }
 function hashToIndex(text) {
     const rusha = new Rusha();
