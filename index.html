@@ -29,7 +29,7 @@ title: Puzzled Pint Bangalore
         </a>
         
         {% if lastDate==today %}
-        <a class="button button-default" href='/standings/{{ currentEvent | date: "%Y-%m" }}/' role="button">🏅 Leaderboard {{currentEvent | date:"%B %Y"}}</a><br>
+        <a class="button button-default" href='/standings/{{ currentEvent.date | date: "%Y-%m" }}/' role="button">🏅 Leaderboard {{currentEvent.date | date:"%B %Y"}}</a><br>
         {% endif %}
 
         <a class="button button-default" href='/teams/' role="button">📊 Teams</a><br>
