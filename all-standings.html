@@ -21,7 +21,7 @@ layout: default
                 <th>Time</th>
             </tr>
             
-            {% assign events =  site.data.events |where: "future", nil | reverse %}
+            {% assign events =  site.data.events | reverse %}
             {% for row in events %}
             {% assign attendees = 0 %}
 
@@ -30,7 +30,7 @@ layout: default
                 {% assign attendees = attendees | plus: r['Team Size'] %}
                 
             {% endfor %}
-            {% if attendees > 0 %}
+            
             <tr>
                 <td>
                     <a href='/standings/{{row.date|date:"%Y-%m"}}/' title='Standings for {{row.date|date:"%B %Y"}}'>
@@ -52,7 +52,6 @@ layout: default
                     {% endif %}
                 </td>
             </tr>
-            {% endif %}
             {% endfor %}
 
       </div>

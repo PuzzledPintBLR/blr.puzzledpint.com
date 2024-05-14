@@ -41,9 +41,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
                 row['duration'] = "#{d/3600.floor}h"
             end
             minutes = (d/60) % 60
-            if minutes > 5
-                row['duration'] += "#{minutes}m"
-            end
+            row['duration'] += "#{minutes}m"
             site.data['teams'][row['slug']]['results'] << {
                 'd' => d/60,
                 'duration' => row['duration'],

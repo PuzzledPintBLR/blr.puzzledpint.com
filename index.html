@@ -28,7 +28,7 @@ title: Puzzled Pint Bangalore
           🏆 All Months Leaderboard
         </a>
         
-        {% if currentEvent.date>=site.date %}
+        {% if lastDate==today %}
         <a class="button button-default" href='/standings/{{ currentEvent | date: "%Y-%m" }}/' role="button">🏅 Leaderboard {{currentEvent | date:"%B %Y"}}</a><br>
         {% endif %}
 
