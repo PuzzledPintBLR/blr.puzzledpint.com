@@ -60,11 +60,21 @@ Jekyll::Hooks.register :site, :post_read do |site|
     site.data['results'].sort_by! do |r|
         [r['d'].nil? ? 1 : 0, r['d'], r['Start Time']]
     end
-    site.data['teams'] = site.data['teams'].values
-    site.data['teams'].sort_by! {|r| -r['results'].size }
-
+    
     site.data['event_theme_mapping'] = {}
     site.data['events'].each do |event|
-        site.data['event_theme_mapping'][event['date'].to_s] = event['theme']
+        date = event['date'].to_s
+        site.data['event_theme_mapping'][date] = event['theme']
+
+        event_results = site.data['results'].select {|r| r['Date'] == date}
+        event_results.each_with_index do |result, idx|
+            slug = result['slug']
+            site.data['teams'][slug]['results'].each do |r|
+                r['rank'] = idx+1 if r['event'] == date
+            end
+        end
     end
+
+    site.data['teams'] = site.data['teams'].values
+    site.data['teams'].sort_by! {|r| -r['results'].size }
 end

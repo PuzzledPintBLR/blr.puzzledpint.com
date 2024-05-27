@@ -22,8 +22,21 @@ layout: default
                     <a href='/standings/{{row.event|date:"%Y-%m"}}/'>{{row.event | date:"%B %Y"}}</a>
                     <span>{{site.data.event_theme_mapping[row.event]}}</span>
                 </td>
-                <td class=time>
-                    <span>{{row.players}}</span>
+                <td><span class=subtle>{{row.players}} Players</span>
+                    {% case row.rank %}
+                    {% when 1 %}
+                      | <span title="Fastest Team">🥇</span>
+                    {% when 2 %}
+                      | <span title="Second-fastest Team">🥈</span>
+                    {% when 3 %}
+                      | <span title="Third-fastest Team">🥉</span>
+                    {% else %}
+
+                    {% if row.duration != '' %}
+                      | <span title="Ranked {{row.rank}}{{row.rank | ordinal}}">{{row.rank}}{{row.rank | ordinal}}</span>
+                    {% endif %}
+                    {% endcase %}
+                    
                 </td>
                 <td class="time">
                     {% if row.duration != '' %}
