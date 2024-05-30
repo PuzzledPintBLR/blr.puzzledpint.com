@@ -47,8 +47,8 @@ layout: default
                     </a>
                 </td>
                 <td class=time>
-                    {% if top_team.duration %}
-                    <span>{{top_team.duration}}</span>
+                    {% if top_team.solved %}
+                    <span>{{top_team.duration | duration_to_string}}</span>
                     {% endif %}
                 </td>
             </tr>

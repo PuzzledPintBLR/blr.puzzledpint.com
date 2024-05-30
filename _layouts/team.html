@@ -15,7 +15,7 @@ layout: default
             <th>Players</th>
             <th>Solve Time</th>
           </tr>
-            {% assign rows = page.team.results |reverse%}
+            {% assign rows = page.team.results |reverse %}
             {% for row in rows %}
             <tr>
                 <td class=team style="text-align: left;">
@@ -32,15 +32,15 @@ layout: default
                       | <span title="Third-fastest Team">🥉</span>
                     {% else %}
 
-                    {% if row.duration != '' %}
+                    {% if row.solved %}
                       | <span title="Ranked {{row.rank}}{{row.rank | ordinal}}">{{row.rank}}{{row.rank | ordinal}}</span>
                     {% endif %}
                     {% endcase %}
                     
                 </td>
                 <td class="time">
-                    {% if row.duration != '' %}
-                    <span>{{row.duration}}</span>
+                    {% if row.solved %}
+                    <span>{{row.duration | duration_to_string}}</span>
                     {% endif %}
                 </td>
             </tr>

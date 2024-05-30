@@ -32,9 +32,9 @@ layout: default
                     <span>{{row['Start Time']}}</span>
                 </td>
                 <td class="time">
-                    {% if row['d'] %}
+                    {% if row.solved %}
                     <span>
-                    {{row['duration']}}
+                    {{ row.duration | duration_to_string }}
                     </span>
                     {% endif %}
                 </td>
