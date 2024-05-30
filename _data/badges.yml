@@ -1,0 +1,27 @@
+- id: sub-1h
+  name: Sub 1h
+  description: Finished a puzzle set in less than an hour
+  emoji: ⏲️
+- id: has-alias
+  name: Secret Identity
+  description: Participated with a different team name
+  emoji: 🦸
+- id: christmas
+  name: Christmas
+  description: Attended a Christmas themed puzzle
+  emoji: 🎄
+- id: diwali
+  name: Diwali
+  description: Attended a puzzle on the Diwali week
+  emoji: 🪔
+- id: streak-__VAR__
+  name: Streak of __VAR__
+  description: Attended __VAR__ puzzles in a row
+- id: year-__VAR__
+  name: Year __VAR__
+  description: Attended 6 puzzles in the year __VAR__
+# TODO: December Meta Puzzle Completion Badges
+# TODO: Live Streak
+- id: punctual
+  name: Punctial
+  description: First team to start the set
