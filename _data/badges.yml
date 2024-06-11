@@ -14,6 +14,10 @@
   name: Diwali
   description: Attended a puzzle on the Diwali week
   emoji: 🪔
+- id: pi
+  name: Pi
+  description: Attended a math-themed puzzled
+  emoji: π
 - id: streak-__VAR__
   name: Streak of __VAR__
   description: Attended __VAR__ puzzles in a row

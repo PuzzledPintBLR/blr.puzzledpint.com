@@ -16,7 +16,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     end
 
     site.data['teams'] = {}
-    site.data['event_theme_mapping'] = {}
+    site.data['event_mapping'] = {}
 
     site.data['results'].each do |row|
         next if row['Team Name'].empty?
@@ -28,6 +28,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
 
         site.data['teams'][row['slug']] ||= {
             'results' => [],
+            'badges' => [],
             'slug' => row['slug'],
             'color_index'=> row['color_index'],
             'name' => row['Team Name']
@@ -62,7 +63,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
 
     site.data['events'].each do |event|
         date = event['date'].to_s
-        site.data['event_theme_mapping'][date] = event['theme']
+        site.data['event_mapping'][date] = event
 
         event_results = site.data['results'].select {|r| r['Date'] == date}
         event_results.each_with_index do |result, idx|
@@ -71,6 +72,12 @@ Jekyll::Hooks.register :site, :post_read do |site|
                 r['rank'] = idx+1 if r['event'] == date
             end
         end
+    end
+
+    # Award the has-alias badge
+    site.data['aliases'].each do |row|
+        slug = row['slug']
+        site.data['teams'][slug]['badges'] << 'has-alias'
     end
 
     # Convert hash to array

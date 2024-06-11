@@ -19,12 +19,16 @@
 
 - date: 2023-07-11
   theme: "Christmas in July"
+  badges:
+    - christmas
 
 - date: 2023-08-08
   theme: "Questionable Letters"
 
 - date: 2023-09-12
   theme: "Quantum Physics"
+  badges:
+    - physicist
 
 - date: 2023-10-10
   theme: "Nobel Prize"
@@ -43,6 +47,8 @@
 
 - date: 2024-03-12
   theme: "Mathematics"
+  badges:
+    - pi
 
 - date: 2024-04-09
   theme: "The Magnus Archives"

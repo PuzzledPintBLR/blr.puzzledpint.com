@@ -20,7 +20,7 @@ layout: default
             <tr>
                 <td class=team style="text-align: left;">
                     <a href='/standings/{{row.event|date:"%Y-%m"}}/'>{{row.event | date:"%B %Y"}}</a>
-                    <span>{{site.data.event_theme_mapping[row.event]}}</span>
+                    <span>{{site.data.event_mapping[row.event].theme}}</span>
                 </td>
                 <td><span class=subtle>{{row.players}} Players</span>
                     {% case row.rank %}
