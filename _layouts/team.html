@@ -41,6 +41,7 @@ layout: default
                 <td class="time">
                     {% if row.solved %}
                     <span>{{row.duration | duration_to_string}}</span>
+                    <!-- <pre>{{row.duration}}</pre> -->
                     {% endif %}
                 </td>
             </tr>
@@ -49,6 +50,18 @@ layout: default
         </table>
       </div>
     </div>
+    
+    
+    <div>
+      <span>Badges: </span>{% for B in page.team.badges %}
+        <a title="{{site.data.badge_mapping[B].name}}: {{site.data.badge_mapping[B].description}}" href="/badges/{{B}}">{{site.data.badge_mapping[B].emoji}}</a>
+
+      {% endfor %}
+      {% if page.team.streak > 3 %}
+        <br>Streak: {{page.team.streak}}
+        {% endif %}
+    </div>
+
     <small>Team Slug: {{page.team.slug}}</small>
     <br>
     <small>

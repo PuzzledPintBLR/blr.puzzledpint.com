@@ -10,6 +10,7 @@ url: "https://blr.puzzzledpint.com" # the base hostname & protocol for your site
 github_username:  PuzzledPintBLR
 plugins:
   - jekyll-datapage-generator
+emoji_dir: "https://github.githubassets.com/images/icons/emoji"
 links:
 - url: https://chat.whatsapp.com/GcrT3z5uOYY57AJxolMj7I
   icon: whatsapp
@@ -59,3 +60,9 @@ page_gen:
   name_expr: record['slug']
   title_expr : record['name'] + " | Puzzled Pint BLR Team"
   page_data_prefix: team
+- data: badges
+  template: badge
+  dir: badges
+  name_expr: record['id']
+  # title_expr: record['name'] | + " | Puzzled Pint BLR Badge"
+  page_data_prefix: badge

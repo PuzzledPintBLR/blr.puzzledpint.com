@@ -16,14 +16,18 @@
   emoji: 🪔
 - id: pi
   name: Pi
-  description: Attended a math-themed puzzled
+  description: Attended a math-themed puzzle
   emoji: π
-- id: streak-__VAR__
-  name: Streak of __VAR__
-  description: Attended __VAR__ puzzles in a row
-- id: year-__VAR__
-  name: Year __VAR__
-  description: Attended 6 puzzles in the year __VAR__
+- id: physicist
+  name: Physicist
+  emoji: ⚛️
+  description: Attended a physics-themed puzzle
+- id: streak-triple
+  name: Streak of 
+  description: Attended 3 puzzles in a row
+- id: year-2023
+  name: Year 2023
+  description: Attended 6 puzzles in the year 2023
 # TODO: December Meta Puzzle Completion Badges
 # TODO: Live Streak
 - id: punctual
