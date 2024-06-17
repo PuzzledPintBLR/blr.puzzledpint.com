@@ -29,7 +29,7 @@ layout: default
                     <span>{{row['Team Size']}} Players</span>
                 </td>
                 <td class="time">
-                    <span>{{row['Start Time']}}</span>
+                    <span>{{row['Start Time'] | slice:0,5}}</span>
                 </td>
                 <td class="time">
                     {% if row.solved %}

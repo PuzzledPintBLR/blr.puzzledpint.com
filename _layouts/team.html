@@ -41,7 +41,6 @@ layout: default
                 <td class="time">
                     {% if row.solved %}
                     <span>{{row.duration | duration_to_string}}</span>
-                    <!-- <pre>{{row.duration}}</pre> -->
                     {% endif %}
                 </td>
             </tr>
@@ -54,7 +53,7 @@ layout: default
     
     <div>
       <span>Badges: </span>{% for B in page.team.badges %}
-        <a title="{{site.data.badge_mapping[B].name}}: {{site.data.badge_mapping[B].description}}" href="/badges/{{B}}">{{site.data.badge_mapping[B].emoji}}</a>
+        <a style="text-decoration: none" title="{{site.data.badge_mapping[B].name}}: {{site.data.badge_mapping[B].description}}" href="/badges/{{B}}">{{site.data.badge_mapping[B].emoji}}</a>
 
       {% endfor %}
       {% if page.team.streak > 3 %}
