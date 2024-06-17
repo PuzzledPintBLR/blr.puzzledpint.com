@@ -33,3 +33,7 @@
 - id: punctual
   name: Punctial
   description: First team to start the set
+- id: sushi
+  name: Sushi
+  description: Attended a food-themed puzzle
+  emoji: 🍣
