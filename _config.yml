@@ -47,22 +47,26 @@ links:
 
 page_gen-dirs: true
 page_gen:
+# /standings/:YYYY-MM/, based on _data/events.yml
 - data: events
   template: standings
   dir: standings
   name_expr: record['date'].strftime('%Y-%m')
-  title_expr: record['date'].strftime("%B %Y")  + " | Puzzled Pint BLR"
+  title_expr: record['date'].strftime("%B %Y")
   page_data_prefix: event
 
+# /team/:slug page
 - data: teams
   template: team
   dir: teams
   name_expr: record['slug']
-  title_expr : record['name'] + " | Puzzled Pint BLR Team"
+  title_expr : record['name'] + " Team "
   page_data_prefix: team
+
+# /badges/:badge_id page from _data/badges.yml
 - data: badges
   template: badge
   dir: badges
   name_expr: record['id']
-  # title_expr: record['name'] | + " | Puzzled Pint BLR Badge"
+  title_expr: record['name']
   page_data_prefix: badge
