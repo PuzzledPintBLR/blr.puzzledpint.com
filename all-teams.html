@@ -2,7 +2,7 @@
 layout: default
 permalink: /teams/
 ---
-
+{% include color-style.html %}
 <div class="container">
     <div class="row">
       <div class="column" style="margin-top: 10%; margin-bottom: 10%">
@@ -25,7 +25,7 @@ permalink: /teams/
             <tr style="display:none">
             {%endif%}
                 
-                <td class="team color-{{row.color_index}}" data-slug="{{row.slug}}">
+                <td style="text-align: left" class="color-{{row.color_index}}" data-slug="{{row.slug}}">
                     <a href="/teams/{{row.slug}}/">{{row.name}}</a>
                 </td>
                   
@@ -34,7 +34,11 @@ permalink: /teams/
                   <span>{{row.results.last.duration | duration_to_string}}</span>
                   {% endif %}
                 </td>
-                <td>{{row.results.last.event | date:"%B %Y"}}</td>
+                <td style="font-size: smaller ;">
+                  <a href='/standings/{{row.results.last.event | date: "%Y-%m"}}/'>
+                    {{row.results.last.event | date:"%b %y"}}
+                  </a>
+                </td>
                 <td>{{row.results.size}}</td>
                 
             </tr>

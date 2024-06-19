@@ -9,6 +9,15 @@ layout: default
         <a href="/"><img src="/images/favicon.png" class="avatar" alt="Puzzled Pint Bangalore Logo" /></a>
 
         <h2 role="heading" class="color-{{page.team.color_index}}-wide">{{page.team.name}}</h2>
+        <div>
+          {% for B in page.team.badges %}
+            <a style="display: inline-block; min-width: 32px; padding: 5px; border-radius: 3px; border: 1px dashed grey; font-size: 30px; text-decoration: none" title="{{site.data.badge_mapping[B].name}}: {{site.data.badge_mapping[B].description}}" href="/badges/{{B}}">{{site.data.badge_mapping[B].emoji}}</a>
+
+          {% endfor %}
+          {% if page.team.streak > 3 %}
+            <br>Longest <span title="Months attended in a row without a break">Streak</span>: {{page.team.streak}}
+            {% endif %}
+        </div>
         <table>
           <tr>
             <th>Event</th>
@@ -48,17 +57,6 @@ layout: default
 
         </table>
       </div>
-    </div>
-    
-    
-    <div>
-      <span>Badges: </span>{% for B in page.team.badges %}
-        <a style="text-decoration: none" title="{{site.data.badge_mapping[B].name}}: {{site.data.badge_mapping[B].description}}" href="/badges/{{B}}">{{site.data.badge_mapping[B].emoji}}</a>
-
-      {% endfor %}
-      {% if page.team.streak > 3 %}
-        <br>Streak: {{page.team.streak}}
-        {% endif %}
     </div>
 
     <small>Team Slug: {{page.team.slug}}</small>
