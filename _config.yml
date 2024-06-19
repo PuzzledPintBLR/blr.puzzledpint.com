@@ -1,50 +1,13 @@
-sass:
-  quiet_deps: true
 title: Puzzled Pint BLR
 author: Puzzled Pint Bangalore GC
-description: >- # this means to ignore newlines until "baseurl:"
+description: >-
   A casual event for puzzle lovers on the second Tuesday of every month. Bangalore Chapter of
   Puzzled Pint.
-baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://blr.puzzzledpint.com" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  PuzzledPintBLR
+
+# Generated Pages using jekyll-datapage-generator
 plugins:
   - jekyll-datapage-generator
-emoji_dir: "https://github.githubassets.com/images/icons/emoji"
-links:
-- url: https://chat.whatsapp.com/GcrT3z5uOYY57AJxolMj7I
-  icon: whatsapp
-  text: Join WhatsApp Group (Updates)
-  button: whatsapp
-- url: http://puzzledpint.com/puzzles/
-  icon: generic-website
-  text: Puzzle Archives
-  button: default
-- url: http://puzzledpint.com/resources/
-  icon: read-cv
-  text: Puzzle Solving Resources
-  button: amazon
-- url: https://www.instagram.com/puzzledpintblr/
-  icon: instagram
-  text: "@puzzledpintblr"
-  button: instagram
-- url: https://t.me/+aSLCl4cpCUs0OWVk
-  text: Telegram Updates
-  icon: telegram
-  button: telegram
-- url: https://twitter.com/PuzzledPintBLR/
-  text: "@puzzledpintblr"
-  icon: twitter
-  button: twit
-- url: https://eepurl.com/dmqMbT
-  text: Monthly Newsletter
-  button: mailchimp
-  icon: email
-- url: https://github.com/PuzzledPintBLR
-  text: GitHub
-  button: github
-  icon: github
-
 page_gen-dirs: true
 page_gen:
 # /standings/:YYYY-MM/, based on _data/events.yml
@@ -70,3 +33,6 @@ page_gen:
   name_expr: record['id']
   title_expr: record['name']
   page_data_prefix: badge
+
+sass:
+  quiet_deps: true

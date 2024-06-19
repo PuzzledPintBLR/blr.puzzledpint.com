@@ -28,7 +28,7 @@ title: Puzzled Pint Bangalore
 
         <a class="button button-default" href='/teams/' role="button">📊 Teams</a><br>
 
-        {% for link in site.links %}
+        {% for link in site.data.links %}
         <a class="button button-{{link.button}}" href="{{link.url}}" target=_blank rel=noopener role=button>
             <img class=icon src=/images/icons/{{link.icon}}.svg alt="icon for {{link.icon}}">
             {{link.text}}
