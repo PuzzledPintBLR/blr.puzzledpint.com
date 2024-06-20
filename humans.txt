@@ -1,0 +1,20 @@
+/* TEAM */
+	Game Control: Karthik
+	Twitter: @karthikb351
+	Fediverse: @karthikb351@karthikb351.com
+
+	Host: Punjit
+
+	Developer: Nemo
+	Contact: https://captnemo.in/contact/
+ 	Twitter: @captn3m0
+	Fediverse: @nemo@tatooine.club
+
+
+/* SITE */
+	Last update: {{ site.time | date: '%A, %B %e, %Y' }}
+	Language: English
+	Doctype: HTML5
+	IDE: Sublime Text
+	Tools: Jekyll
+	Host: GitHub Pages

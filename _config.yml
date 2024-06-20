@@ -8,6 +8,7 @@ url: "https://blr.puzzzledpint.com" # the base hostname & protocol for your site
 # Generated Pages using jekyll-datapage-generator
 plugins:
   - jekyll-datapage-generator
+  - jekyll-sitemap
 page_gen-dirs: true
 page_gen:
 # /standings/:YYYY-MM/, based on _data/events.yml
