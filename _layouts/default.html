@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <title>{{page.title}}{% if page.url!="/" %} | Puzzled Pint BLR {%endif%}</title>
+  {%capture title %}{{page.title}}{% if page.url!="/" %} | Puzzled Pint BLR {%endif%}{%endcapture%}
+  <title>{{title}}</title>
   <meta name="description" content="{{site.description}}">
   <meta name="author" content="{{site.author}}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,6 +15,15 @@
 
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
+  <meta property="og:url" content="{{page.url|absolute_url}}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{site.description}}">
+  {% if page.event.date %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="blr.puzzledpint.com">
+  <meta property="og:image" content='{{ "/images/events/" | append:page.event.date|append:".jpg" | absolute_url }}'>
+  {% endif %}
 </head>
 
 <body>
