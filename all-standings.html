@@ -39,6 +39,15 @@ layout: default
                 </td>
                 <td class=subtle>{{row.theme}}</td>
                 
+                {% if row.sheetURL %}
+                <td colspan=3 class=time><span style="min-width: 250px;display: inline-block;">LIVE</span></td>
+                {% elsif attendees == 0 %}
+                <td colspan=3>
+                    <!-- TODO: Change to a simpler JS based countdown -->
+                    <iframe id="online-alarm-kur-iframe" src="https://embed-countdown.onlinealarmkur.com/en/#{{row.date}}T18:30:00@Asia%2FKolkata" width="300" height="60" style="display: block; margin: 0px auto; border: 0px;"></iframe>
+                </td>
+                {% else %}
+
                 <td><span>{{attendees}}</span></td>
                 {% assign top_team = month_results.first %}
                 <td class="team color-{{month_results.first.color_index}}">
@@ -51,6 +60,7 @@ layout: default
                     <span>{{top_team.duration | duration_to_string}}</span>
                     {% endif %}
                 </td>
+                {% endif %}
             </tr>
             {% endfor %}
 
