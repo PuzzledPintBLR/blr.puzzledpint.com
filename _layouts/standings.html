@@ -12,7 +12,9 @@ layout: default
         <h2 role="heading">{{page.event.date | date:"%B %Y"}} Teams</h2>
         <h4><a style="color: #76316e" href='https://puzzledpint.com/events/{{page.event.date|date:"%B-%Y" | downcase}}/'>{{page.event.theme}}</a></h4>
         <img style="border-radius: 1em" width="100%" src="/images/events/{{page.event.date}}.jpg">
-        <table>
+        {% assign rows = site.data.results | where: "Date", page.event.date %}
+        {% if rows.size > 0 or page.event.sheetURL %}
+        <table id=standings>
           <tr>
             <th>#</th>
             <th>Team</th>
@@ -20,7 +22,7 @@ layout: default
             <th>Solve Time</th>
           </tr>
             {% assign idx=1 %}
-            {% assign rows = site.data.results | where: "Date", page.event.date %}
+            
             {% if rows.size > 0 %}
             {% for row in rows %}
             <tr>
@@ -43,11 +45,16 @@ layout: default
             </tr>
             {% assign idx=idx|plus:1 %}
             {% endfor %}
-            {% else %}
+            {% endif %}
+
+            {% if page.event.sheetURL %}
             {% include live-standings.html sheetURL=page.event.sheetURL%}
             {% endif %}
 
         </table>
+        {% else %}
+        <p>No results available yet.</p>
+        {% endif %}
       </div>
     </div>
 </div>
