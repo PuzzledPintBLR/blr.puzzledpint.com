@@ -72,4 +72,7 @@
 
 - date: 2024-10-08
   theme: "Shopping Spree"
-  sheetURL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQua3MWvwVpG8f1OgbT7eCCVeE9HryRDLg_GgAxjPbskyv-sna16lF4FacgqhlB0FgjJbkIRMPFQpQa/pub?gid=675615202&single=true&output=csv"
+
+- date: 2024-11-12
+  theme: "Classic Games"
+  sheetURL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQua3MWvwVpG8f1OgbT7eCCVeE9HryRDLg_GgAxjPbskyv-sna16lF4FacgqhlB0FgjJbkIRMPFQpQa/pub?gid=761829968&single=true&output=csv"
