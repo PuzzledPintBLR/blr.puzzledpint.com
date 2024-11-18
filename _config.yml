@@ -3,7 +3,7 @@ author: Puzzled Pint Bangalore GC
 description: >-
   A casual event for puzzle lovers on the second Tuesday of every month. Bangalore Chapter of
   Puzzled Pint.
-url: "https://blr.puzzzledpint.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://blr.puzzzledpint.com"
 
 # Generated Pages using jekyll-datapage-generator
 plugins:

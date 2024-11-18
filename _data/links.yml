@@ -2,11 +2,11 @@
   icon: whatsapp
   text: Join WhatsApp Group (Updates)
   button: whatsapp
-- url: http://puzzledpint.com/puzzles/
+- url: https://puzzledpint.com/puzzles/
   icon: generic-website
   text: Puzzle Archives
   button: default
-- url: http://puzzledpint.com/resources/
+- url: https://puzzledpint.com/resources/
   icon: read-cv
   text: Puzzle Solving Resources
   button: amazon
