@@ -3,16 +3,18 @@ require 'jekyll/utils'
 require 'digest/sha1'
 
 Jekyll::Hooks.register :site, :post_read do |site|
+    def find_alias_or_slug(site, team_name, event = nil)
+        tn = team_name.gsub('β', 'beta')
+        slug = Jekyll::Utils.slugify(tn)
 
-    def find_alias_or_slug(site, team_name)
-        tn = team_name.sub('β', 'beta')
-        slug = Jekyll::Utils.slugify tn
-        aliased = site.data['aliases'].find { |row| row['name'] == slug }
-        if aliased
-            return aliased['slug']
-        else
-            return slug
+        # Find alias using first matching entry in 'aliases'
+        # in case the csv contains a event date, then the alias is limited to a single event
+        # so only trigger it for a matching event
+        aliased = site.data['aliases'].find do |row|
+            (row['event'] == event && row['name'] == slug) || row['name'] == slug
         end
+
+        aliased&.[]('slug') || slug
     end
 
     site.data['teams'] = {}
@@ -23,7 +25,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
 
         row['duration'] = nil
         row['solved'] = false
-        row['slug'] = find_alias_or_slug(site, row['Team Name'])
+        row['slug'] = find_alias_or_slug(site, row['Team Name'], row['Date'])
         row['color_index'] = Digest::SHA1.hexdigest(row['slug']).to_i(16) % site.data['colors'].size
 
         site.data['teams'][row['slug']] ||= {
