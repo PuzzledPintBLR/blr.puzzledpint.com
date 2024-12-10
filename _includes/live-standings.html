@@ -59,7 +59,6 @@ Papa.parse("{{include.sheetURL}}", {
     teams
         .append("td")
         .text((d, i) => i + 1)
-        .id("team-by-position-" + i+1)
         .attr("class", "position");
 
     // name followed by the team
@@ -102,10 +101,5 @@ Papa.parse("{{include.sheetURL}}", {
         });
     }
 })
-
-// Refresh every minute
-window.setTimeout( function() {
-  window.location.reload();
-}, 60000);
 
 </script>
