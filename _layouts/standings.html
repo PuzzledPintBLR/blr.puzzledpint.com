@@ -29,7 +29,7 @@ layout: default
                 <td>{{idx}}</td>
                 
                 <td class="team color-{{row.color_index}}" data-slug="{{row.slug}}">
-                    <a href="/teams/{{row.slug}}/">{{row['Team Name']}}</a>
+                    <a href="/teams/{{row.slug}}/">{{row['Team Name'] | escape}}</a>
                     <span>{{row['Team Size']}} Players</span>
                 </td>
                 <td class="time">
