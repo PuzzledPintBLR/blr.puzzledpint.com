@@ -51,8 +51,8 @@ layout: default
                 <td><span>{{attendees}}</span></td>
                 {% assign top_team = month_results.first %}
                 <td class="team color-{{month_results.first.color_index}}">
-                    <a href="/teams/{{top_team.slug}}/" title="Team Page for {{top_team['Team Name']}}">
-                        {{top_team['Team Name']}}
+                    <a href="/teams/{{top_team.slug}}/" title="Team Page for {{top_team['Team Name'] | escape}}">
+                        {{top_team['Team Name'] | escape}}
                     </a>
                 </td>
                 <td class=time>

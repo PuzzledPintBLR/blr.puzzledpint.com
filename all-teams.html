@@ -27,7 +27,7 @@ permalink: /teams/
             {%endif%}
                 
                 <td style="text-align: left" class="color-{{row.color_index}}" data-slug="{{row.slug}}">
-                    <a href="/teams/{{row.slug}}/">{{row.name}}</a>
+                    <a href="/teams/{{row.slug}}/">{{row.name | escape}}</a>
                 </td>
                   
                 <td class="time">

@@ -8,7 +8,7 @@ layout: default
 
         <a href="/"><img src="/images/favicon.png" class="avatar" alt="Puzzled Pint Bangalore Logo" /></a>
 
-        <h2 role="heading" class="color-{{page.team.color_index}}-wide">{{page.team.name}}</h2>
+        <h2 role="heading" class="color-{{page.team.color_index}}-wide">{{page.team.name | escape}}</h2>
         <div>
           {% for B in page.team.badges %}
             <a style="display: inline-block; min-width: 32px; padding: 5px; border-radius: 3px; border: 1px dashed grey; font-size: 30px; text-decoration: none" title="{{site.data.badge_mapping[B].name}}: {{site.data.badge_mapping[B].description}}" href="/badges/{{B}}">{{site.data.badge_mapping[B].emoji}}</a>
@@ -66,7 +66,7 @@ layout: default
     {% if aliases.size > 0 %}
     The team is known by the following aliases: 
     {% for i in aliases %}
-    <br>- {{i.name}} {%if i.event%}({{i.event}}){%endif%}
+    <br>- {{i.name | escape}} {%if i.event%}({{i.event}}){%endif%}
     {% endfor %}
     {% endif %}
     </small>
