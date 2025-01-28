@@ -80,7 +80,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 4.4)
-  jekyll-datapage-generator
+  jekyll-datapage-generator (~> 1.4.0)
   jekyll-sitemap (~> 1.4)
   json (~> 2.7)
   logger (~> 1.6)
