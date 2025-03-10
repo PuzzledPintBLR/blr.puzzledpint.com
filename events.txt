@@ -1,4 +1,4 @@
 ---
 ---
-{% for e in site.data.events %}wget "$(curl --silent "https://insider.in/puzzled-pint-bangalore-{{e.date | date:"%B-%Y" | downcase}}/event" | pup 'img[data-ref="edp_event_banner_image"] attr{src}')" -O "images/events/{{e.date}}.jpg"
+{% for e in site.data.events %}wget "$(curl --silent "https://www.district.in/puzzled-pint-bangalore-{{e.date | date:"%B-%Y" | downcase}}/event" | pup 'img[data-ref="edp_event_banner_image"] attr{src}')" -O "images/events/{{e.date}}.jpg"
 {% endfor %}
