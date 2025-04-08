@@ -5,6 +5,9 @@ description: >-
   Puzzled Pint.
 url: "https://blr.puzzzledpint.com"
 
+# Add .well-known folder to built site
+include: [".well-known"]
+
 # Generated Pages using jekyll-datapage-generator
 plugins:
   - jekyll-datapage-generator
