@@ -31,9 +31,13 @@
 # TODO: December Meta Puzzle Completion Badges
 # TODO: Live Streak
 - id: punctual
-  name: Punctial
+  name: Punctual
   description: First team to start the set
 - id: sushi
   name: Sushi
   description: Attended a food-themed puzzle
   emoji: 🍣
+- id: anniversary-15
+  name: 15th Anniversary
+  description: Attended the 15th Anniversary puzzle (July 2025)
+  emoji: 🎉

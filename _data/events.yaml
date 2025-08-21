@@ -166,6 +166,8 @@
 
 - date: 2025-04-08
   theme: "Night Out at the Puzzleria"
+  badges:
+    - sushi
 
 - date: 2025-05-13
   theme: "Artificial Intelligence"
@@ -175,7 +177,8 @@
 
 - date: 2025-07-08
   theme: "15th Birthday"
+  badges:
+    - anniversary-15
 
 - date: 2025-08-12
   theme: "Orville Peck"
-  sheetURL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQg1RuRijxUuwsNqb6jbCC4P7Qy-IslFjUlzJ5_qObAGLx2oUE6qoOFIPWZrbutoKE0jruKNnomG4-0/pub?gid=790611513&single=true&output=csv"
