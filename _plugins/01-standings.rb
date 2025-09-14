@@ -5,6 +5,7 @@ require 'digest/sha1'
 Jekyll::Hooks.register :site, :post_read do |site|
     def find_alias_or_slug(site, team_name, event = nil)
         tn = team_name.gsub('β', 'beta')
+        tn = team_name.gsub('²', 'squared')
         slug = Jekyll::Utils.slugify(tn)
 
         # Find alias using first matching entry in 'aliases'
