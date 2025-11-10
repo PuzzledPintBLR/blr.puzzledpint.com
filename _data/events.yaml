@@ -204,4 +204,7 @@
 
 - date: 2025-10-14
   theme: "Constellations"
-  sheetURL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQg1RuRijxUuwsNqb6jbCC4P7Qy-IslFjUlzJ5_qObAGLx2oUE6qoOFIPWZrbutoKE0jruKNnomG4-0/pub?gid=1198083344&single=true&output=csv"
+
+- date: 2025-11-11
+  theme: "Catan"
+  sheetURL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQg1RuRijxUuwsNqb6jbCC4P7Qy-IslFjUlzJ5_qObAGLx2oUE6qoOFIPWZrbutoKE0jruKNnomG4-0/pub?gid=1890356845&single=true&output=csv"
