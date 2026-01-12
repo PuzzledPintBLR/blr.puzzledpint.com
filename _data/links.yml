@@ -2,6 +2,10 @@
   icon: whatsapp
   text: Join WhatsApp Group (Updates)
   button: whatsapp
+- url: https://chat.whatsapp.com/EAmgGlpwMa2KVDVJlBqA3r
+  icon: whatsapp
+  text: BLR Puzzle Club (WhatsApp Community)
+  button: whatsapp
 - url: https://puzzledpint.com/puzzles/
   icon: generic-website
   text: Puzzle Archives
