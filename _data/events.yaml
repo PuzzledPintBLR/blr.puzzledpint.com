@@ -213,4 +213,7 @@
 
 - date: 2026-01-13
   theme: "Grateful Dead"
-  sheetURL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vREblPFBfGTSBBMYwQljWo7Hw1jIz1q5EUOznbaT1Mk0eLZfhZlZOEnrnE3_APHclni-tUzvXaa9LMc/pub?gid=1127342149&single=true&output=csv"
+
+- date: 2026-02-10
+  theme: "Murder Mystery"
+  sheetURL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vREblPFBfGTSBBMYwQljWo7Hw1jIz1q5EUOznbaT1Mk0eLZfhZlZOEnrnE3_APHclni-tUzvXaa9LMc/pub?gid=1988036436&single=true&output=csv"
