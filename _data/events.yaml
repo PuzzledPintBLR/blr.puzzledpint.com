@@ -222,6 +222,7 @@
 
 - date: 2026-04-14
   theme: "The Beetles"
-# - date: 2026-05-12
-# theme: "Head of the Pints"
-# sheetURL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vREblPFBfGTSBBMYwQljWo7Hw1jIz1q5EUOznbaT1Mk0eLZfhZlZOEnrnE3_APHclni-tUzvXaa9LMc/pub?gid=244385469&single=true&output=csv"
+
+- date: 2026-05-12
+  theme: "Head of the Pints"
+  sheetURL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vREblPFBfGTSBBMYwQljWo7Hw1jIz1q5EUOznbaT1Mk0eLZfhZlZOEnrnE3_APHclni-tUzvXaa9LMc/pub?gid=244385469&single=true&output=csv"
