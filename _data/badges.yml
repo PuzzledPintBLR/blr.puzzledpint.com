@@ -23,13 +23,11 @@
   emoji: ⚛️
   description: Attended a physics-themed puzzle
 - id: streak-triple
-  name: Streak of 
+  name: Streak of 3
   description: Attended 3 puzzles in a row
 - id: year-2023
   name: Year 2023
   description: Attended 6 puzzles in the year 2023
-# TODO: December Meta Puzzle Completion Badges
-# TODO: Live Streak
 - id: punctual
   name: Punctual
   description: First team to start the set

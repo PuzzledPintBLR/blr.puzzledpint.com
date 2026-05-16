@@ -7,19 +7,110 @@ url: "https://blr.puzzzledpint.com"
 
 # Add .well-known folder to built site
 include: [".well-known"]
+exclude: ["docs", "vendor", "Gemfile", "Gemfile.lock"]
 
 # Generated Pages using jekyll-datapage-generator
 plugins:
+  - jekyll_sqlite
   - jekyll-datapage-generator
   - jekyll-sitemap
+
+sqlite:
+  - data: results
+    file: _data/results.db
+    query: |
+      SELECT date AS "Date", team_name AS "Team Name", team_size AS "Team Size",
+             start_time AS "Start Time", end_time AS "End Time",
+             slug, color_index, duration,
+             CASE solved WHEN 1 THEN 1 ELSE NULL END AS solved
+      FROM results
+      ORDER BY solved DESC, duration ASC, start_time ASC
+
+  - data: events
+    file: _data/results.db
+    query: SELECT date, theme, sheet_url AS sheetURL FROM events ORDER BY date
+
+  - data: aliases
+    file: _data/results.db
+    query: SELECT name, slug, event FROM aliases
+
+  - data: badges
+    file: _data/results.db
+    query: SELECT id, name, description, emoji FROM badges
+
+  - data: teams
+    file: _data/results.db
+    query: |
+      WITH events_seq AS (
+        SELECT date, ROW_NUMBER() OVER (ORDER BY date) AS event_num FROM events
+      ),
+      attendance AS (
+        SELECT DISTINCT r.slug, es.event_num
+        FROM results r JOIN events_seq es ON es.date = r.date
+      ),
+      runs AS (
+        SELECT slug, event_num,
+          event_num - ROW_NUMBER() OVER (PARTITION BY slug ORDER BY event_num) AS grp
+        FROM attendance
+      ),
+      streaks AS (
+        SELECT slug, MAX(len) AS streak FROM (
+          SELECT slug, grp, COUNT(*) AS len FROM runs GROUP BY slug, grp
+        ) GROUP BY slug
+      )
+      SELECT t.slug, t.name, t.color_index, t.appearances,
+             COALESCE(s.streak, 0) AS streak
+      FROM teams t LEFT JOIN streaks s USING (slug)
+      ORDER BY t.appearances DESC
+
+  - data: teams.results
+    file: _data/results.db
+    query: |
+      SELECT r.date AS event, e.theme AS theme, r.team_size AS players,
+             r.duration, r.rank,
+             CASE r.solved WHEN 1 THEN 1 ELSE NULL END AS solved
+      FROM results r JOIN events e USING (date)
+      WHERE r.slug = :slug ORDER BY r.date
+
+  # Hand-written union of every badge's earning rule. Mirrors the per-page
+  # queries under /badges/<id>.md — both must change when a badge rule changes.
+  - data: teams.badges
+    file: _data/results.db
+    query: |
+      WITH team_badges AS (
+        SELECT 'sub-1h' AS badge_id, t.slug
+          FROM teams t JOIN results r USING (slug)
+          WHERE r.solved = 1 AND r.duration < 3600
+        UNION
+        SELECT 'has-alias', t.slug
+          FROM teams t JOIN aliases USING (slug)
+        UNION
+        SELECT eb.badge_id, t.slug
+          FROM teams t JOIN results r USING (slug)
+          JOIN event_badges eb ON eb.date = r.date
+        UNION
+        SELECT 'year-2023', t.slug
+          FROM teams t JOIN results r USING (slug)
+          WHERE substr(r.date, 1, 4) = '2023'
+          GROUP BY t.slug HAVING COUNT(*) >= 6
+        UNION
+        SELECT 'punctual', t.slug
+          FROM teams t JOIN results r USING (slug)
+          JOIN (SELECT date, MIN(start_time) AS m FROM results GROUP BY date) x
+            ON x.date = r.date AND x.m = r.start_time
+      )
+      SELECT b.id, b.name, b.description, b.emoji
+      FROM team_badges tb JOIN badges b ON b.id = tb.badge_id
+      WHERE tb.slug = :slug
+
 page_gen-dirs: true
 page_gen:
 # /standings/:YYYY-MM/, based on _data/events.yml
 - data: events
   template: standings
   dir: standings
-  name_expr: record['date'].strftime('%Y-%m')
-  title_expr: record['date'].strftime("%B %Y")
+  name_expr: Date.parse(record['date'].to_s).strftime('%Y-%m')
+  title_expr: Date.parse(record['date'].to_s).strftime("%B %Y")
   page_data_prefix: event
 
 # /team/:slug page
@@ -29,14 +120,6 @@ page_gen:
   name_expr: record['slug']
   title_expr : record['name'] + " Team "
   page_data_prefix: team
-
-# /badges/:badge_id page from _data/badges.yml
-- data: badges
-  template: badge
-  dir: badges
-  name_expr: record['id']
-  title_expr: record['name']
-  page_data_prefix: badge
 
 sass:
   quiet_deps: true
