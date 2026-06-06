@@ -225,3 +225,7 @@
 
 - date: 2026-05-12
   theme: "Head of the Pints"
+
+- date: 2026-06-09
+  theme: "Tarot"
+  sheetURL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vREblPFBfGTSBBMYwQljWo7Hw1jIz1q5EUOznbaT1Mk0eLZfhZlZOEnrnE3_APHclni-tUzvXaa9LMc/pub?gid=659515757&single=true&output=csv"
