@@ -237,4 +237,7 @@
 
 - date: 2026-09-08
   theme: "Orchestra"
-  sheetURL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vREblPFBfGTSBBMYwQljWo7Hw1jIz1q5EUOznbaT1Mk0eLZfhZlZOEnrnE3_APHclni-tUzvXaa9LMc/pub?gid=290298154&single=true&output=csv"
+
+- date: 2026-10-13
+  theme: "Calvin and Hobbes"
+  sheetURL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vREblPFBfGTSBBMYwQljWo7Hw1jIz1q5EUOznbaT1Mk0eLZfhZlZOEnrnE3_APHclni-tUzvXaa9LMc/pub?gid=732074638&single=true&output=csv"
